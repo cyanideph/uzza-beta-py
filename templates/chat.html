@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UzZap Beta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.0.1/socket.io.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h1 class="app-title">UzZap Beta</h1>
+            <nav>
+                <a href="{{ url_for('profile') }}"><i class="fas fa-user"></i> Profile</a>
+                <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+            <div class="chatroom-list" id="chatroom-list">
+                <!-- Chatroom list will be populated dynamically -->
+            </div>
+            <div class="user-list" id="user-list">
+                <!-- Online users will be populated dynamically -->
+            </div>
+        </aside>
+        <main class="chat-container">
+            <header class="chat-header">
+                <h2 id="current-room">Select a room</h2>
+            </header>
+            <div class="messages" id="messages">
+                <!-- Messages will be populated dynamically -->
+            </div>
+            <form id="message-form" class="message-form">
+                <input type="text" id="message-input" placeholder="Type your message...">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                <label for="file-input" class="file-input-label">
+                    <i class="fas fa-paperclip"></i>
+                    <input type="file" id="file-input" style="display: none;">
+                </label>
+            </form>
+        </main>
+    </div>
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>
