@@ -1,0 +1,293 @@
+:root {
+    --primary-color: #4a90e2;
+    --secondary-color: #50e3c2;
+    --background-color: #f5f8fa;
+    --text-color: #333;
+    --accent-color: #ff6b6b;
+    --sidebar-bg: #2c3e50;
+    --sidebar-text: #ecf0f1;
+    --chat-bg: #ffffff;
+    --message-bg: #e9f2fc;
+    --message-text: #34495e;
+    --input-bg: #f1f3f5;
+    --input-text: #2c3e50;
+    --button-bg: #3498db;
+    --button-text: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+.app-container {
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar {
+    width: 250px;
+    background-color: var(--sidebar-bg);
+    color: var(--sidebar-text);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.app-title {
+    font-size: 24px;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+.sidebar nav {
+    margin-bottom: 20px;
+}
+
+.sidebar nav a {
+    display: block;
+    color: var(--sidebar-text);
+    text-decoration: none;
+    padding: 10px 0;
+    transition: color 0.3s ease;
+}
+
+.sidebar nav a:hover {
+    color: var(--secondary-color);
+}
+
+.chatroom-list, .user-list {
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.chatroom-item, .user-item {
+    cursor: pointer;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.chatroom-item:hover, .user-item:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+}
+
+.chatroom-item.active {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.chat-container {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--chat-bg);
+}
+
+.chat-header {
+    padding: 20px;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.messages {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto;
+}
+
+.message {
+    background-color: var(--message-bg);
+    color: var(--message-text);
+    border-radius: 20px;
+    padding: 10px 15px;
+    margin-bottom: 10px;
+    max-width: 70%;
+    word-wrap: break-word;
+}
+
+.message.sent {
+    background-color: var(--primary-color);
+    color: white;
+    margin-left: auto;
+}
+
+.message-form {
+    display: flex;
+    padding: 20px;
+    background-color: var(--input-bg);
+}
+
+#message-input {
+    flex-grow: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 20px;
+    background-color: white;
+    color: var(--input-text);
+}
+
+.message-form button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.message-form button:hover {
+    background-color: var(--primary-color);
+}
+
+.auth-container {
+    max-width: 400px;
+    margin: 100px auto;
+    background-color: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.auth-container h1 {
+    text-align: center;
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.auth-container form {
+    display: flex;
+    flex-direction: column;
+}
+
+.input-group {
+    position: relative;
+    margin-bottom: 20px;
+}
+
+.input-group i {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--primary-color);
+}
+
+.input-group input, .input-group textarea {
+    width: 100%;
+    padding: 10px 10px 10px 35px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+.auth-container button, .profile-container button {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.auth-container button:hover, .profile-container button:hover {
+    background-color: var(--primary-color);
+}
+
+.auth-container p {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.profile-container {
+    flex-grow: 1;
+    padding: 40px;
+    background-color: var(--chat-bg);
+}
+
+.profile-container h2 {
+    color: var(--primary-color);
+    margin-bottom: 30px;
+}
+
+.avatar-container {
+    position: relative;
+    width: 150px;
+    height: 150px;
+    margin: 0 auto 30px;
+}
+
+.avatar {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.avatar-input-label {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: var(--primary-color);
+    color: white;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.avatar-input-label:hover {
+    background-color: var(--button-bg);
+}
+
+.file-input-label {
+    background-color: var(--button-bg);
+    color: var(--button-text);
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.file-input-label:hover {
+    background-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .app-container {
+        flex-direction: column;
+    }
+
+    .sidebar {
+        width: 100%;
+        height: auto;
+    }
+
+    .chat-container {
+        height: calc(100vh - 200px);
+    }
+
+    .auth-container {
+        width: 90%;
+        padding: 20px;
+    }
+}
