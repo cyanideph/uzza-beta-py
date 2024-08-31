@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile - UzZap Beta</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+</head>
+<body>
+    <div class="app-container">
+        <aside class="sidebar">
+            <h1 class="app-title">UzZap Beta</h1>
+            <nav>
+                <a href="{{ url_for('index') }}"><i class="fas fa-comments"></i> Chat</a>
+                <a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i> Logout</a>
+            </nav>
+        </aside>
+        <main class="profile-container">
+            <h2>Your Profile</h2>
+            <form action="{{ url_for('profile') }}" method="post" enctype="multipart/form-data">
+                <div class="avatar-container">
+                    <img src="{{ url_for('uploaded_file', filename=user.avatar) }}" alt="Avatar" class="avatar">
+                    <label for="avatar-input" class="avatar-input-label">
+                        <i class="fas fa-camera"></i>
+                        <input type="file" id="avatar-input" name="avatar" accept="image/*" style="display: none;">
+                    </label>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-user"></i>
+                    <input type="text" value="{{ user.username }}" readonly>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-envelope"></i>
+                    <input type="email" value="{{ user.email }}" readonly>
+                </div>
+                <div class="input-group">
+                    <i class="fas fa-info-circle"></i>
+                    <textarea name="bio" placeholder="Tell us about yourself">{{ user.bio }}</textarea>
+                </div>
+                <button type="submit">Update Profile</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>
